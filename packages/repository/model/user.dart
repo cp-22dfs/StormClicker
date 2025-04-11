@@ -1,10 +1,12 @@
+import 'package:uuid/uuid.dart';
+Uuid uuid = const Uuid();
 class User {
-  final int id;
+  final String id;
   final String pseudo ;
 
   bool ready;
 
-  User({required this.id, required this.pseudo ,required this.ready});
+  User({String? id, required this.pseudo, this.ready = false,}): id = id ?? uuid.v4();
 
  
   Map<String, dynamic> toJson() {

@@ -1,3 +1,4 @@
+import 'package:clickstorm_ui/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -44,9 +45,7 @@ class _FirstScreenState extends State<FirstScreen> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Surnom : ${_controller.text}')),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
                 },
                 child: const Text('Valider'),
               ),

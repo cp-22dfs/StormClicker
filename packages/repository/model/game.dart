@@ -21,18 +21,17 @@ class Game {
     gameStarted = false;
   }
 
-  void StartGame() {
-    if (CanStartgame()) {
+  void StartGame(){
+    if(CanStartgame()){
       gameStarted = true;
     }
   }
 
-  bool CanStartgame() {
-    return users.length == 2 &&
-        users.where((user) => user.ready).length == users.length;
+  bool CanStartgame(){
+    return users.length == 2 && users.where((user) => user.ready).length == users.length;
   }
 
-  bool CanBeJoigned() {
+  bool CanBeJoigned(){
     return users.length <= 1;
   }
 }

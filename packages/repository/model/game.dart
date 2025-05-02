@@ -13,7 +13,7 @@ class Game {
     password = passwordWord;
   }
 
-  void restart(){
+  void Restart(){
     gameNumber++;
     for(int i = 0; i<users.length; i++){
       users[i].ready = false;

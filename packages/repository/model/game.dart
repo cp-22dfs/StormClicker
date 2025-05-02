@@ -36,4 +36,17 @@ class Game {
   bool canBeJoigned(){
     return users.length <= 1;
   }
+
+  factory Game.fromJson(Map<String, dynamic> json) {
+    return Game(
+      id: json['id'],
+      users: json['users'],
+      password: json['password']
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Game(id: \$id, users : \$users , password \$password )';
+  }
 }

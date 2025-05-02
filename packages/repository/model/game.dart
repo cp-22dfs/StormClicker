@@ -8,31 +8,30 @@ class Game {
   bool gameStarted = false;
   // string bestPlayer = "";
 
-  Game(List<User> listUser, String passwordWord) {
+  Game(List<User> listUser, String passwordWord){
     users = listUser;
     password = passwordWord;
   }
 
-  void Restart() {
+  void Restart(){
     gameNumber++;
-    for (int i = 0; i < users.length; i++) {
+    for(int i = 0; i<users.length; i++){
       users[i].ready = false;
     }
     gameStarted = false;
   }
 
-  void StartGame() {
-    if (CanStartgame()) {
+  void StartGame(){
+    if(CanStartgame()){
       gameStarted = true;
     }
   }
 
-  bool CanStartgame() {
-    return users.length == 2 &&
-        users.where((user) => user.ready).length == users.length;
+  bool CanStartgame(){
+    return users.length == 2 && users.where((user) => user.ready).length == users.length;
   }
 
-  bool CanBeJoigned() {
+  bool CanBeJoigned(){
     return users.length <= 1;
   }
 }

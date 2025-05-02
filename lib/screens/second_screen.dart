@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'join_room_screen.dart'; 
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+  final String nickname;
+
+  const SecondScreen({super.key, required this.nickname});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,15 @@ class SecondScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               _buildRoundedButton(context, 'Créer salon', () {
-                // Action bouton Créer salon
               }),
               const SizedBox(height: 20),
               _buildRoundedButton(context, 'Rejoindre un salon', () {
-                // Action bouton Rejoindre un salon
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => JoinRoomScreen(nickname: nickname),
+                  ),
+                );
               }),
             ],
           ),
@@ -40,7 +47,7 @@ class SecondScreen extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 16),
-          backgroundColor: Colors.white.withOpacity(0.8), 
+          backgroundColor: Colors.white.withOpacity(0.8),
           foregroundColor: const Color.fromARGB(255, 104, 58, 168),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),

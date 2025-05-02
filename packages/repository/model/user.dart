@@ -3,7 +3,7 @@ Uuid uuid = const Uuid();
 class User {
   final String id;
   final String pseudo ;
-  final bool ready;
+  bool ready;
 
   User({String? id, required this.pseudo, this.ready = false,}): id = id ?? uuid.v4();
 

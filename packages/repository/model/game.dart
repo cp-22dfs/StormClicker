@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class Game {}
-=======
 import 'user.dart';
 
 class Game {

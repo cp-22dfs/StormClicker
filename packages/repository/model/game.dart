@@ -12,7 +12,7 @@ class Game {
   bool gameStarted = false;
   // string bestPlayer = "";
 
-  Game({String? id, required this.users, this.password = "12345",}): id = id ?? uuid.v4();
+  Game({String? id,  this.users = const [], required this.password,}): id = id ?? uuid.v4();
 
   void Restart() {
     gameNumber++;
@@ -46,6 +46,6 @@ class Game {
 
   @override
   String toString() {
-    return 'Game(id: \$id, users : \$users , password \$password )';
+    return 'Game(id: \$id, users : \$users , password : \$password )';
   }
 }

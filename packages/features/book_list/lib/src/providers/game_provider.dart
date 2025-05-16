@@ -14,16 +14,19 @@ class GameProvider extends ChangeNotifier {
 
   void changeGamePassword(String gameId, String newPassword){
     _games.firstWhere((game) => game.id == gameId).password = newPassword;
+    notifyListeners();
   }
 
   void removeGame(String gameId){
     _games.removeWhere((game) => game.id == gameId);
+    notifyListeners();
   }
 
   void addUser(String gameId, User user){
-    Game game = _games.firstWhere((game) => game.id == gameId);
+    final game = _games.firstWhere((game) => game.id == gameId);
     if(game.canBeJoigned()){
       game.users.add(user);
+      notifyListeners();
     }
   }
 }

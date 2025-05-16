@@ -20,6 +20,7 @@ class Game {
     for(int i = 0; i<users.length; i++){
       users[i].ready = false;
     }
+    winner = "";
     gameStarted = false;
   }
 
@@ -34,7 +35,7 @@ class Game {
   }
 
   bool canBeJoigned(){
-    return users.length <= 1;
+    return users.length <= 1 && !gameStarted;
   }
 
   factory Game.fromJson(Map<String, dynamic> json) {

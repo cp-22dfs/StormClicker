@@ -6,7 +6,7 @@ class UserProvider with ChangeNotifier {
   List<User> _users = [];
   List<User> get users => _users;
 
-  void AddUser(User user) {
+  void addUser(User user) {
     _users.add(user);
     notifyListeners();
   }
@@ -30,6 +30,9 @@ class UserProvider with ChangeNotifier {
   }
 
   void joinGame(Game game, String id) {
-    final index = _users.indexWhere((user) => user.id == id);
+    if (game.canBeJoigned()) {
+      game.users.add(_users.firstWhere((u) => u.id == id));
+      notifyListeners();
+    }
   }
 }

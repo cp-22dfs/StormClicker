@@ -17,7 +17,7 @@ class _FirstScreenState extends State<FirstScreen> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('lib/assets/background.jpg'),
             fit: BoxFit.cover,
@@ -45,9 +45,25 @@ class _FirstScreenState extends State<FirstScreen> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+                  final nickname = _controller.text.trim();
+                  if (nickname.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SecondScreen(nickname: nickname),
+                      ),
+                    );
+                  }
                 },
-                child: const Text('Valider'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(0.8),
+                  foregroundColor: const Color.fromARGB(255, 104, 58, 168),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                ),
+                child: const Text('Valider', style: TextStyle(fontSize: 18)),
               ),
             ],
           ),

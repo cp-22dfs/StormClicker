@@ -14,7 +14,7 @@ class Game {
 
   Game({String? id, required this.users, required this.password,}): id = id ?? uuid.v4();
 
-  void Restart() {
+  void restart() {
     gameNumber++;
     for (int i = 0; i < users.length; i++) {
       users[i].ready = false;

@@ -12,7 +12,7 @@ class Game {
   bool gameStarted = false;
   // string bestPlayer = "";
 
-  Game({String? id,  this.users = const [], required this.password,}): id = id ?? uuid.v4();
+  Game({String? id, required this.users, required this.password,}): id = id ?? uuid.v4();
 
   void Restart() {
     gameNumber++;

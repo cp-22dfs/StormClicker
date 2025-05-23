@@ -16,7 +16,7 @@ class Game {
 
   void restart() {
     gameNumber++;
-    for (int i = 0; i < users.length; i++) {
+    for(int i = 0; i<users.length; i++){
       users[i].ready = false;
     }
     winner = "";

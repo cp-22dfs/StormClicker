@@ -7,7 +7,7 @@ class GameProvider extends ChangeNotifier {
   final List<Game> _games = [];
   List<Game> get games => _games;
 
-  void addgame(Game game) {
+  void addGame(Game game) {
     _games.add(game);
     notifyListeners(); 
   }

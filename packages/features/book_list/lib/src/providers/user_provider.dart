@@ -19,18 +19,13 @@ class UserProvider with ChangeNotifier {
   void ready(String id) {
     final index = _users.indexWhere((user) => user.id == id);
     if (index != -1) {
-      final ancienUser = _users[index];
-      _users[index] = User(
-        id: ancienUser.id,
-        pseudo: ancienUser.pseudo,
-        ready: !ancienUser.ready,
-      );
+      _users[index].ready = true;
       notifyListeners();
     }
   }
 
-  void joinGame(Game game, String id) {
-    if (game.canBeJoigned()) {
+  void joinGame(Game game, String id, String password) {
+    if (game.canBeJoigned() && game.password == password) {
       game.users.add(_users.firstWhere((u) => u.id == id));
       notifyListeners();
     }

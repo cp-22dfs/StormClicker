@@ -27,14 +27,14 @@ void main(){
   test('ready toggles user ready variable', () {
     provider.addUser(user);
     expect(provider.users.first.ready, false);
-    provider.ready('1');
+    provider.ready(provider.users[0].id);
     expect(provider.users.first.ready, true);
   });
   
   test('joinGame adds user to game if game not started', () {
     provider.addUser(user);
     final game = Game(password: "12345", users: []);
-    provider.joinGame(game, '1');
+    provider.joinGame(game, '1', "12345");
     expect(game.users.length, 1);
   });
 }

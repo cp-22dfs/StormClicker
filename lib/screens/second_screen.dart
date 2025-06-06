@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'join_room_screen.dart'; 
+import 'join_room_screen.dart';
+import 'create_room_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   final String nickname;
@@ -23,6 +24,12 @@ class SecondScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               _buildRoundedButton(context, 'Créer salon', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CreateRoomScreen(nickname: nickname),
+                  ),
+                );
               }),
               const SizedBox(height: 20),
               _buildRoundedButton(context, 'Rejoindre un salon', () {
